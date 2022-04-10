@@ -2,14 +2,18 @@ import Race from './Race';
 
 class Dwarf extends Race {
   lifePoints = 80;
-  counter = 0;
+  static counter = 0;
+
+  constructor(name: string, dex: number) {
+    super(name, dex);
+    Dwarf.counter += 1;
+  }
 
   get maxLifePoints(): number {
     return this.lifePoints;
   }
 
-  createdRacesInstances(): number {
-    this.counter += 1;
+  static createdRacesInstances() {
     return this.counter;
   }
 }
