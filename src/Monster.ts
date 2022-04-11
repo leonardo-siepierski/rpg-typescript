@@ -4,8 +4,8 @@ class Monster implements SimpleFighter {
   private _lifePoints: number;
   private _strength: number;
 
-  constructor() {
-    this._lifePoints = 85;
+  constructor(lifePoints = 85) {
+    this._lifePoints = lifePoints;
     this._strength = 63;
   }
 
@@ -19,7 +19,7 @@ class Monster implements SimpleFighter {
 
   receiveDamage(attackPoints: number): void {
     if (attackPoints > 0) {
-      this._lifePoints = this.lifePoints - attackPoints;
+      this._lifePoints -= attackPoints;
     }
 
     if (attackPoints > this.lifePoints) {
