@@ -28,6 +28,14 @@ class Character implements Fighter {
     this._defense = getRandomInt(1, 10);
   }
 
+  get race(): Race {
+    return this._race;
+  }
+
+  get archetype(): Archetype {
+    return this._archetype;
+  }
+
   get lifePoints(): number {
     return this._lifePoints;
   }
@@ -41,7 +49,7 @@ class Character implements Fighter {
   }
 
   get energy(): Energy {
-    return this._energy;
+    return { ...this._energy };
   }
 
   get dexterity(): number {
@@ -49,7 +57,7 @@ class Character implements Fighter {
   }
 
   receiveDamage(attackPoints: number): number {
-    const damage = this._defense - attackPoints;
+    const damage = attackPoints - this.defense;
 
     if (damage > 0) {
       this._lifePoints -= damage;
