@@ -17,14 +17,14 @@ class Monster implements SimpleFighter {
     return this._strength;
   }
 
-  receiveDamage(attackPoints: number): void {
-    if (attackPoints > 0) {
-      this._lifePoints -= attackPoints;
-    }
+  receiveDamage(attackPoints: number): number {
+    this._lifePoints -= attackPoints;
 
-    if (attackPoints > this.lifePoints) {
+    if (this.lifePoints < 1) {
       this._lifePoints = -1;
     }
+
+    return this._lifePoints;
   }
 
   attack(enemy: SimpleFighter): void {
