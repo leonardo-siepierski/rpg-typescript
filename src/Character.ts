@@ -90,8 +90,8 @@ class Character implements Fighter {
     } else this._maxLifePoints = sum;
   }
 
-  special(): number {
-    return this._strength * 2;
+  special(enemy: SimpleFighter): void {
+    enemy.receiveDamage(this._strength * 2);
   }
 }
 
